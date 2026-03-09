@@ -1,32 +1,83 @@
+:root {
+  --bg: #f3efe6;
+  --surface: #fffaf3;
+  --ink: #1d2a35;
+  --line: #d9ccb8;
+  --brand: #0d7a64;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  min-height: 100vh;
+  color: var(--ink);
+}
+
+.app-shell {
+  min-height: calc(100vh + 7rem);
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at 15% 10%, #fff7e7 0%, transparent 40%),
+    radial-gradient(circle at 90% 0%, #d6efe6 0%, transparent 35%),
+    var(--bg);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: color-mix(in srgb, var(--surface) 88%, white 12%);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(4px);
 }
 
 .nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
   display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border-bottom: 1px solid #646cff;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .nav a {
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.25s;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .nav a:hover {
-  background-color: rgba(100, 108, 255, 0.1);
+  background-color: #ece3d2;
+  border-color: var(--line);
 }
 
 .nav a.active {
-  background-color: rgba(100, 108, 255, 0.2);
-  font-weight: bold;
+  background-color: var(--brand);
+  border-color: var(--brand);
+  color: #f6fffb;
+}
+
+.page-main {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+  text-align: center;
+  flex: 1;
+}
+
+.site-footer {
+  margin-top: auto;
+  border-top: 1px solid var(--line);
+  background-color: var(--surface);
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
 }
 
 .gallery {
@@ -37,7 +88,8 @@
 }
 
 .card-item {
-  border: 1px solid #646cff;
+  border: 1px solid var(--line);
+  background-color: var(--surface);
   border-radius: 8px;
   padding: 1rem;
   transition: transform 0.25s;
